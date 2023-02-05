@@ -1,0 +1,148 @@
+Admin@MY-PC MINGW64 ~/Desktop (master)
+$ mkdir learn_git
+
+Admin@MY-PC MINGW64 ~/Desktop (master)
+$ cd learn_git
+
+Admin@MY-PC MINGW64 ~/Desktop/learn_git (master)
+$ type nul > third.txt
+bash: type: nul: not found
+
+Admin@MY-PC MINGW64 ~/Desktop/learn_git (master)
+$ git init
+Initialized empty Git repository in C:/Users/Admin/Desktop/learn_git/.git/
+
+Admin@MY-PC MINGW64 ~/Desktop/learn_git (master)
+$ git add third.txt
+
+Admin@MY-PC MINGW64 ~/Desktop/learn_git (master)
+$ git commit -m "adding third.txt"
+[master (root-commit) af73271] adding third.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 third.txt
+
+Admin@MY-PC MINGW64 ~/Desktop/learn_git (master)
+$ git log
+commit af73271fa2515212ac312f6701fa60406214cacd (HEAD -> master)
+Author: fares <fares.tro22@gmail.com>
+Date:   Sun Feb 5 15:06:31 2023 +0100
+
+    adding third.txt
+
+Admin@MY-PC MINGW64 ~/Desktop/learn_git (master)
+$ nul > fourth.txt
+bash: nul: command not found
+
+Admin@MY-PC MINGW64 ~/Desktop/learn_git (master)
+$ git add fourth.txt
+
+Admin@MY-PC MINGW64 ~/Desktop/learn_git (master)
+$ git commit -m "adding fourth.txt"
+[master f8ba929] adding fourth.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 fourth.txt
+
+Admin@MY-PC MINGW64 ~/Desktop/learn_git (master)
+$ rm third.txt
+
+Admin@MY-PC MINGW64 ~/Desktop/learn_git (master)
+$ git add *
+
+Admin@MY-PC MINGW64 ~/Desktop/learn_git (master)
+$ git commit -m "removing third.txt"
+On branch master
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        deleted:    third.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Admin@MY-PC MINGW64 ~/Desktop/learn_git (master)
+$ git log
+commit f8ba929a5940249fca4873b53edcab3a245810aa (HEAD -> master)
+Author: fares <fares.tro22@gmail.com>
+Date:   Sun Feb 5 15:13:50 2023 +0100
+
+    adding fourth.txt
+
+commit af73271fa2515212ac312f6701fa60406214cacd
+Author: fares <fares.tro22@gmail.com>
+Date:   Sun Feb 5 15:06:31 2023 +0100
+
+    adding third.txt
+
+Admin@MY-PC MINGW64 ~/Desktop/learn_git (master)
+$ git config --global core.page = cat
+Admin@MY-PC MINGW64 ~/Desktop/learn_git (master)
+$ git config --list
+diff.astextplain.textconv=astextplain
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.process=git-lfs filter-process
+filter.lfs.required=true
+http.sslbackend=openssl
+http.sslcainfo=C:/Program Files/Git/mingw64/ssl/certs/ca-bundle.crt
+core.autocrlf=true
+core.fscache=true
+core.symlinks=false
+pull.rebase=false
+credential.helper=manager
+credential.https://dev.azure.com.usehttppath=true
+init.defaultbranch=master
+user.name=fares
+user.email=fares.tro22@gmail.com
+core.page==
+core.repositoryformatversion=0
+core.filemode=false
+core.bare=false
+core.logallrefupdates=true
+core.symlinks=false
+core.ignorecase=true
+
+Admin@MY-PC MINGW64 ~/Desktop/learn_git (master)
+$ git config --global
+usage: git config [<options>]
+
+Config file location
+    --global              use global config file
+    --system              use system config file
+    --local               use repository config file
+    --worktree            use per-worktree config file
+    -f, --file <file>     use given config file
+    --blob <blob-id>      read config from given blob object
+
+Action
+    --get                 get value: name [value-pattern]
+    --get-all             get all values: key [value-pattern]
+    --get-regexp          get values for regexp: name-regex [value-pattern]
+    --get-urlmatch        get value specific for the URL: section[.var] URL
+    --replace-all         replace all matching variables: name value [value-pattern]
+    --add                 add a new variable: name value
+    --unset               remove a variable: name [value-pattern]
+    --unset-all           remove all matches: name [value-pattern]
+    --rename-section      rename section: old-name new-name
+    --remove-section      remove a section: name
+    -l, --list            list all
+    --fixed-value         use string equality when comparing values to 'value-pattern'
+    -e, --edit            open an editor
+    --get-color           find the color configured: slot [default]
+    --get-colorbool       find the color setting: slot [stdout-is-tty]
+
+Type
+    -t, --type <type>     value is given this type
+    --bool                value is "true" or "false"
+    --int                 value is decimal number
+    --bool-or-int         value is --bool or --int
+    --bool-or-str         value is --bool or string
+    --path                value is a path (file or directory name)
+    --expiry-date         value is an expiry date
+
+Other
+    -z, --null            terminate values with NUL byte
+    --name-only           show variable names only
+    --includes            respect include directives on lookup
+    --show-origin         show origin of config (file, standard input, blob, command line)
+    --show-scope          show scope of config (worktree, local, global, system, command)
+    --default <value>     with --get, use default value when missing entry
+
